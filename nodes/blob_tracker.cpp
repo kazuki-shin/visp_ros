@@ -88,7 +88,7 @@ public:
     , m_cam_kud( -1 )
     , m_cam_kdu( -1 )
   {
-    m_image_sub         = m_it.subscribe( "/camera/image_raw", m_queue_size, &BlobTracker::callback, this );
+    m_image_sub         = m_it.subscribe( "/usb_cam/image_raw", m_queue_size, &BlobTracker::callback, this );
     m_tracker_publisher = m_nh.advertise< visp_ros::BlobTracker >( "blob_tracker/data", m_queue_size );
     m_status_publisher  = m_nh.advertise< std_msgs::Int8 >( "blob_tracker/status", m_queue_size );
 

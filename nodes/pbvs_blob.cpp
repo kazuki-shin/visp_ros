@@ -119,7 +119,7 @@ VS::VS( int argc, char **argv )
 {
   m_subData   = m_nh.subscribe( "/blob_tracker/data", 1000, &VS::data_callback, this );
   m_subStatus = m_nh.subscribe( "/blob_tracker/status", 1000, &VS::status_callback, this );
-  m_pubTwist  = m_nh.advertise< geometry_msgs::TwistStamped >( "pbvs/cmd_camvel", 1000 );
+  m_pubTwist  = m_nh.advertise< geometry_msgs::TwistStamped >( "/servo_server/delta_twist_cmds", 1000 );
 
   // Load desired pose from parameters
   m_nh.getParam( "tx_d", m_t_x_d );
