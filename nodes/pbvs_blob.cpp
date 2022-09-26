@@ -273,6 +273,7 @@ VS::data_callback( const visp_ros::BlobTracker::ConstPtr &msg )
     display( msg );
 
     camvel_msg.header.stamp    = ros::Time::now();
+    camvel_msg.header.frame_id = "robot1/camera_link";
     camvel_msg.twist.linear.x  = m_v[0];
     camvel_msg.twist.linear.y  = m_v[1];
     camvel_msg.twist.linear.z  = m_v[2];
@@ -286,6 +287,7 @@ VS::data_callback( const visp_ros::BlobTracker::ConstPtr &msg )
   {
     ROS_INFO( "Catch an exception: set vel to 0" );
     camvel_msg.header.stamp    = ros::Time::now();
+    camvel_msg.header.frame_id = "robot1/camera_link";
     camvel_msg.twist.linear.x  = 0;
     camvel_msg.twist.linear.y  = 0;
     camvel_msg.twist.linear.z  = 0;
